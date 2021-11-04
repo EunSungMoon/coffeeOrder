@@ -11,4 +11,16 @@ export default {
       price: 5678
     }
   ],
+  nocoffeeArray: [
+    {
+      title: 'xxx',
+      engTitle: 'xxx',
+      price: 9012
+    },
+    {
+      title: 'aaa',
+      engTitle: 'aaa',
+      price: 3456
+    }
+  ],
 }

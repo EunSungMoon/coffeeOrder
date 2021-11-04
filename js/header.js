@@ -1,6 +1,7 @@
-import coffee from "./coffee.js";
+// import coffee from "./coffee.js";
 import { sel } from "./common.js";
 import Main from './main.js'
+import menu from "./menu.js";
 
 // header
 export default {
@@ -32,7 +33,7 @@ export default {
       <nav>
         <ol>
           <li class = "menuTab" data-tab = "coffee"><a href = "#">COFFEE</a></li>
-          <li class = "margin25 menuTab" data-tab = "nocoffee"><a href="#">nonCOFFEE</a></li>
+          <li class = "margin25 menuTab" data-tab = "nocoffee"><a href="#">noCOFFEE</a></li>
           <li class = "menuTab" data-tab = "tea"><a href = "#">TEA</a></li>
           <li class = "menuTab" data-tab = "ade"><a href = "#">ADE</a></li>
         </ol>
@@ -51,19 +52,22 @@ export default {
   clickNavEvent(e) {
     let target = e.currentTarget.dataset.tab
     switch (target) {
-      case 'coffee': Main.menuTemplate(coffee.coffeeArray)
+      case 'coffee': 
+      console.log('coffee');
+
         break;
-      case 'nocoffee': console.log('nocoffee');
+      case 'nocoffee': 
+      console.log('nocoffee');
+      Main.display('.coffeeWrap','none');
+      Main.menuTemplate('.nocoffeeWrap', menu.nocoffeeArray);
         break;
       case 'tea': console.log('tea');
         break;
       case 'ade': console.log('ade');
         break;
     }
-    // console.log(target);
-  }
+  },
 }
 
 //main-> section 문제가... 클릭할때마다 계속 생겨..
-
 /* <div class = "logo"></div> */

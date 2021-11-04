@@ -1,5 +1,6 @@
 import { sel } from "./common.js";
-import coffee from "./coffee.js";
+import menu from "./menu.js";
+
 
 export default {
   init() {
@@ -8,14 +9,27 @@ export default {
   },
 
   load() {
-    this.menuTemplate(coffee.coffeeArray)
+    this.templateWrap()
+    this.menuTemplate('.coffeeWrap', menu.coffeeArray);
+    this.menuTemplate('.nocoffeeWrap', menu.nocoffeeArray);
+    this.display('.nocoffeeWrap','none');
   },
 
   event() {
 
   },
 
-  menuTemplate(tabName) {
+  templateWrap() {
+    let wrap = `
+      <div class = "coffeeWrap"></div>
+      <div class = "nocoffeeWrap"></div>
+      <div class = "teaWrap"></div>
+      <div class = "adeWrap"></div>
+    `
+    sel.el('main').insertAdjacentHTML('afterbegin', wrap)
+  },
+
+  menuTemplate(wrapper, tabName) {
     for (const key in tabName) {
       let template = `
       <div class = "menuWrap">
@@ -27,8 +41,11 @@ export default {
         </div>
       </div>
     `
-      sel.el('.main').insertAdjacentHTML('afterbegin', template)
+      sel.el(wrapper).insertAdjacentHTML('afterbegin', template)
     }
   },
-  //h2 : 메뉴 이름. p1st 영문이름 p2nd 가격
+
+  display(elClassName, state) {
+    sel.el(elClassName).style.display = state
+  }
 }

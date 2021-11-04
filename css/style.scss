@@ -7,11 +7,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    .logo {
-      // background: url('/css/img/logo.png') no-repeat;
-      width: 75px;
-      height: 75px;
-    }
+    // .logo {
+    //   background: url('/css/img/logo.png') no-repeat;
+    //   width: 75px;
+    //   height: 75px;
+    // }
     h1 { 
       text-align: center;
       margin-top: 0;
@@ -45,6 +45,12 @@ body {
         }
       }
     }
+  }
+}
+
+.main {
+  .menuWrap {
+    display: block;
   }
 }
 .margin25 {

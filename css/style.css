@@ -29,7 +29,7 @@ body {
   padding-top: 20px;
 }
 
-.header nav ul {
+.header nav ol {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -46,17 +46,17 @@ body {
   height: 60px;
 }
 
-.header nav ul li {
+.header nav ol li {
   width: 100px;
   height: 100%;
 }
 
-.header nav ul li :hover {
+.header nav ol li :hover {
   background: #036635;
   color: #f6f5ef;
 }
 
-.header nav ul li a {
+.header nav ol li a {
   display: block;
   height: 60px;
   width: 100%;

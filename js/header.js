@@ -1,4 +1,6 @@
+import coffee from "./coffee.js";
 import { sel } from "./common.js";
+import Main from './main.js'
 
 // header
 export default {
@@ -13,13 +15,12 @@ export default {
   },
 
   event() {
-
+    this.clickTest()
   },
 
   createHeader() {
     let titleDom = `
     <div class = "headWrap">
-      <div class = "logo"></div>
       <h1>Order</h1>
     </div>
       `
@@ -29,15 +30,40 @@ export default {
   createNav() {
     let navDom = `
       <nav>
-        <ul>
-          <li><a href = "#">COFFEE</a></li>
-          <li class = "margin25"><a href="#">nonCOFFEE</a></li>
-          <li><a href = "#">TEA</a></li>
-          <li><a href = "#">ADE</a></li>
-        </ul>
+        <ol>
+          <li class = "menuTab" data-tab = "coffee"><a href = "#">COFFEE</a></li>
+          <li class = "margin25 menuTab" data-tab = "nocoffee"><a href="#">nonCOFFEE</a></li>
+          <li class = "menuTab" data-tab = "tea"><a href = "#">TEA</a></li>
+          <li class = "menuTab" data-tab = "ade"><a href = "#">ADE</a></li>
+        </ol>
       <nav>
     `
     sel.el('.headWrap').insertAdjacentHTML('afterend', navDom)
-  }
+  },
 
+  clickTest() {
+    let tabs = sel.elAll('.menuTab')
+    for (const tab of tabs) {
+      tab.addEventListener('click', this.clickNavEvent)
+    }
+  },
+
+  clickNavEvent(e) {
+    let target = e.currentTarget.dataset.tab
+    switch (target) {
+      case 'coffee': Main.menuTemplate(coffee.coffeeArray)
+        break;
+      case 'nocoffee': console.log('nocoffee');
+        break;
+      case 'tea': console.log('tea');
+        break;
+      case 'ade': console.log('ade');
+        break;
+    }
+    // console.log(target);
+  }
 }
+
+//main-> section 문제가... 클릭할때마다 계속 생겨..
+
+/* <div class = "logo"></div> */

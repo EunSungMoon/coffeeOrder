@@ -1,1 +1,71 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+body {
+  margin: 0;
+}
+
+.header {
+  background: #f6f5ef;
+}
+
+.header .headWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .headWrap .logo {
+  width: 75px;
+  height: 75px;
+}
+
+.header .headWrap h1 {
+  text-align: center;
+  margin-top: 0;
+  padding-top: 20px;
+}
+
+.header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+}
+
+.header nav ul li {
+  width: 100px;
+  height: 100%;
+}
+
+.header nav ul li :hover {
+  background: #036635;
+  color: #f6f5ef;
+}
+
+.header nav ul li a {
+  display: block;
+  height: 60px;
+  width: 100%;
+  color: black;
+  text-decoration: none;
+  line-height: 60px;
+}
+
+.margin25 {
+  margin: 0 25px;
+}
+/*# sourceMappingURL=style.css.map */

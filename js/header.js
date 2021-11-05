@@ -12,11 +12,11 @@ export default {
 
   load() {
     this.createHeader();
-    this.createNav();
+    this.createTabMenu();
   },
 
   event() {
-    this.clickTest()
+    this.clickTab();
   },
 
   createHeader() {
@@ -24,25 +24,24 @@ export default {
     <div class = "headWrap">
       <h1>Order</h1>
     </div>
+    <nav>
+      <ol>
+      </ol>
+    <nav>
       `
     sel.el('.header').insertAdjacentHTML('afterbegin', titleDom)
   },
 
-  createNav() {
-    let navDom = `
-      <nav>
-        <ol>
-          <li class = "menuTab" data-tab = "coffee"><a href = "#">COFFEE</a></li>
-          <li class = "margin25 menuTab" data-tab = "nocoffee"><a href="#">noCOFFEE</a></li>
-          <li class = "menuTab" data-tab = "tea"><a href = "#">TEA</a></li>
-          <li class = "menuTab" data-tab = "ade"><a href = "#">ADE</a></li>
-        </ol>
-      <nav>
-    `
-    sel.el('.headWrap').insertAdjacentHTML('afterend', navDom)
+  createTabMenu() {
+    menu.menuArray.forEach(function (arr) {
+      let tabDom = `
+      <li class = "menuTab" data-tab = "${arr.tab}Tab"><a href = "#">${arr.title}</a></li>
+      `
+      sel.el('ol').insertAdjacentHTML('beforeend', tabDom)
+    })
   },
 
-  clickTest() {
+  clickTab() {
     let tabs = sel.elAll('.menuTab')
     for (const tab of tabs) {
       tab.addEventListener('click', this.clickNavEvent)
@@ -51,19 +50,19 @@ export default {
 
   clickNavEvent(e) {
     let target = e.currentTarget.dataset.tab
+    // console.log(target);
     switch (target) {
-      case 'coffee': 
-      console.log('coffee');
-
+      case 'coffeeTab':
+        console.log('coffee');
         break;
-      case 'nocoffee': 
-      console.log('nocoffee');
-      Main.display('.coffeeWrap','none');
-      Main.menuTemplate('.nocoffeeWrap', menu.nocoffeeArray);
+      case 'nocoffeeTab':
+        console.log('nocoffee');
+        Main.display('.coffeeWrap', 'none');
+        Main.menuTemplate('.nocoffeeWrap', menu.nocoffeeArray);
         break;
-      case 'tea': console.log('tea');
+      case 'teaTab': console.log('tea');
         break;
-      case 'ade': console.log('ade');
+      case 'adeTab': console.log('ade');
         break;
     }
   },

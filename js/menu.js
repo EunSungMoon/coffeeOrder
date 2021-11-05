@@ -1,4 +1,24 @@
 export default {
+  menuArray: [
+    {
+      title: 'COFFEE',
+      tab: 'coffee'
+    },
+    {
+      title: 'noneCOFFEE',
+      tab: 'nocoffee'
+    },
+    {
+      title: 'TEA',
+      tab: 'tea'
+    },
+    {
+      title: 'ADE',
+      tab: 'ade'
+    },
+  ],
+
+
   coffeeArray: [
     {
       title: 'zzz',
@@ -11,6 +31,7 @@ export default {
       price: 5678
     }
   ],
+
   nocoffeeArray: [
     {
       title: 'xxx',

@@ -1,47 +1,80 @@
 export default {
-  menuArray: [
+  tabArray: [
     {
       title: 'COFFEE',
-      tab: 'coffee'
+      tab: 'coffee',
+      state: 'displayBlock'
     },
     {
       title: 'noneCOFFEE',
-      tab: 'nocoffee'
+      tab: 'nocoffee',
+      state: 'displayNone'
     },
     {
       title: 'TEA',
-      tab: 'tea'
+      tab: 'tea',
+      state: 'displayNone'
     },
     {
       title: 'ADE',
-      tab: 'ade'
+      tab: 'ade',
+      state: 'displayNone'
     },
   ],
 
-
   coffeeArray: [
     {
-      title: 'zzz',
-      engTitle: 'zzz',
+      code: "coffee",
+      title: 'aaa',
+      engTitle: 'aaa',
       price: 1234
     },
     {
-      title: 'yyy',
-      engTitle: 'yyy',
+      code: "coffee",
+      title: 'bbb',
+      engTitle: 'bbb',
       price: 5678
     }
   ],
 
   nocoffeeArray: [
     {
-      title: 'xxx',
-      engTitle: 'xxx',
+      code: "nocoffee",
+      title: 'ccc',
+      engTitle: 'ccc',
       price: 9012
     },
     {
-      title: 'aaa',
-      engTitle: 'aaa',
+      code: "nocoffee",
+      title: 'ddd',
+      engTitle: 'ddd',
       price: 3456
+    }
+  ],
+
+  teaArray: [
+    {
+      title: 'eee',
+      engTitle: 'eee',
+      price: 1234
+    },
+    {
+      title: 'fff',
+      engTitle: 'fff',
+      price: 5678
+    }
+  ],
+
+  adeArray: [
+    {
+      title: 'ggg',
+      engTitle: 'ggg',
+      price: 1234
+    },
+    {
+      title: 'hhh',
+      engTitle: 'hhh',
+      price: 5678
     }
   ],
 }

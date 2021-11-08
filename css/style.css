@@ -60,11 +60,15 @@ body {
   line-height: 60px;
 }
 
-.main .menuWrap {
-  display: block;
-}
-
 .margin25 {
   margin: 0 25px;
+}
+
+.displayNone {
+  display: none;
+}
+
+.displayBlock {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */

@@ -47,12 +47,15 @@ body {
     }
   }
 }
-
 .main {
-  .menuWrap {
-    display: block;
-  }
 }
 .margin25 {
   margin: 0 25px;
+}
+
+.displayNone {
+  display: none;
+}
+.displayBlock {
+  display: block;
 }

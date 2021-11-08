@@ -33,7 +33,7 @@ export default {
   },
 
   createTabMenu() {
-    menu.menuArray.forEach(function (arr) {
+    menu.tabArray.forEach(function (arr) {
       let tabDom = `
       <li class = "menuTab" data-tab = "${arr.tab}Tab"><a href = "#">${arr.title}</a></li>
       `
@@ -50,23 +50,21 @@ export default {
 
   clickNavEvent(e) {
     let target = e.currentTarget.dataset.tab
-    // console.log(target);
     switch (target) {
       case 'coffeeTab':
         console.log('coffee');
         break;
       case 'nocoffeeTab':
         console.log('nocoffee');
-        Main.display('.coffeeWrap', 'none');
-        Main.menuTemplate('.nocoffeeWrap', menu.nocoffeeArray);
         break;
-      case 'teaTab': console.log('tea');
+      case 'teaTab':
+        console.log('tea');
+        
         break;
-      case 'adeTab': console.log('ade');
+      case 'adeTab':
+        console.log('ade');
+        
         break;
     }
   },
 }
-
-//main-> section 문제가... 클릭할때마다 계속 생겨..
-/* <div class = "logo"></div> */

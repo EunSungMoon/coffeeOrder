@@ -7,12 +7,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    // .logo {
-    //   background: url('/css/img/logo.png') no-repeat;
-    //   width: 75px;
-    //   height: 75px;
-    // }
-    h1 { 
+
+    h1 {
       text-align: center;
       margin-top: 0;
       padding-top: 20px;
@@ -20,7 +16,6 @@ body {
   }
   nav {
     ol {
-      list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
@@ -48,14 +43,62 @@ body {
   }
 }
 .main {
+  .wrapper {
+    .wrap {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    ol {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      margin-top: 20px;
+
+      li {
+        margin-right: 20px;
+        width: 300px;
+        display: inline-block;
+        position: relative;
+        
+        h2 {
+          font-size: 16px;
+          margin: 0;
+          margin-top: 5px;
+        }
+        .engTitle {
+          color: #666;
+          font-size: 12px;
+          margin-top: 5px;
+        }
+        .price {
+          font-size: 16px;
+        }
+      }
+    }
+  }
 }
+
+// common 디자인
 .margin25 {
   margin: 0 25px;
 }
 
-.displayNone {
+.close {
   display: none;
 }
-.displayBlock {
+.show {
   display: block;
+}
+
+ol {
+  list-style-type: none;
+}
+
+.breakWord {
+  word-break: break-word;
+}
+
+.nobreakWord {
+  white-space: nowrap;
 }

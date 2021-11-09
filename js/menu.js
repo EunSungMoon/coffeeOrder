@@ -3,78 +3,107 @@ export default {
     {
       title: 'COFFEE',
       tab: 'coffee',
-      state: 'displayBlock'
     },
     {
       title: 'noneCOFFEE',
       tab: 'nocoffee',
-      state: 'displayNone'
     },
     {
       title: 'TEA',
       tab: 'tea',
-      state: 'displayNone'
     },
     {
-      title: 'ADE',
-      tab: 'ade',
-      state: 'displayNone'
+      title: 'CAKE',
+      tab: 'cake',
     },
   ],
 
   coffeeArray: [
     {
-      code: "coffee",
-      title: 'aaa',
-      engTitle: 'aaa',
-      price: 1234
+      code: 'coffee',
+      title: '아메리카노',
+      engTitle: 'Amricano',
+      price: '4,100',
+      img: 'americano'
     },
     {
       code: "coffee",
-      title: 'bbb',
-      engTitle: 'bbb',
-      price: 5678
+      title: '카페 라떼',
+      engTitle: 'Cafe Latte',
+      price: '4,600',
+      img: 'cafelatte'
+    },
+    {
+      code: "coffee",
+      title: '카페 라떼',
+      engTitle: 'Cafe Latte',
+      price: '4,600',
+      img: 'cafelatte'
+    },
+    {
+      code: "coffee",
+      title: '카페 라떼',
+      engTitle: 'Cafe Latte',
+      price: '4,600',
+      img: 'cafelatte'
+    },
+    {
+      code: "coffee",
+      title: '카페 라떼',
+      engTitle: 'Cafe Latte',
+      price: '4,600',
+      img: 'cafelatte'
     }
   ],
 
   nocoffeeArray: [
     {
       code: "nocoffee",
-      title: 'ccc',
-      engTitle: 'ccc',
-      price: 9012
+      title: '제주 유기농 말차로 만든 크림 프라푸치노',
+      engTitle: 'Malcha Cream Frappuccino from Jeju Organic Farm',
+      price: '6,300',
+      img: 'malchafra'
     },
     {
       code: "nocoffee",
-      title: 'ddd',
-      engTitle: 'ddd',
-      price: 3456
+      title: '자바 칩 프라푸치노',
+      engTitle: 'Java Chip Frappuccino',
+      price: '6,100',
+      img: 'javachipfra'
     }
   ],
 
   teaArray: [
     {
-      title: 'eee',
-      engTitle: 'eee',
-      price: 1234
+      code: "tea",
+      title: '유자 민트 티',
+      engTitle: 'Yuja Mint Tea',
+      price: '5,600',
+      img: 'yujamint'
     },
     {
-      title: 'fff',
-      engTitle: 'fff',
-      price: 5678
+      code: "tea",
+      title: '자몽 허니 블랙 티',
+      engTitle: 'Grapefruit Honey Black Tea',
+      price: '5,300',
+      img: 'grapefruittea'
     }
   ],
 
-  adeArray: [
+  cakeArray: [
     {
-      title: 'ggg',
-      engTitle: 'ggg',
-      price: 1234
+      code: "cake",
+      title: '부드러운 생크림 카스테라',
+      engTitle: 'Fresh Cream Castella',
+      price: '4,500',
+      img: 'castella'
     },
     {
-      title: 'hhh',
-      engTitle: 'hhh',
-      price: 5678
+      code: "cake",
+      title: '호두 당근 케이크',
+      engTitle: 'Walnut Carrot Cake',
+      price: '6,500',
+      img: 'walnutcake'
     }
   ],
 }

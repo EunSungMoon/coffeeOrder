@@ -1,5 +1,5 @@
 import { sel } from "./common.js";
-import menu from "./menu.js";
+import Menu from "./menu.js";
 
 export default {
   init() {
@@ -9,10 +9,11 @@ export default {
 
   load() {
     this.wrapTemplate();
-    this.menuTemplate('.coffeeWrap', menu.coffeeArray);
-    this.menuTemplate('.nocoffeeWrap', menu.nocoffeeArray);
-    // this.menuTemplate('.teaWrap', menu.teaArray);
-    // this.menuTemplate('.adeWrap', menu.adeArray);
+    this.menuTemplate('.coffeeWrap', Menu.coffeeArray);
+    sel.el('.coffeeWrap').classList.remove('close'); //첫 화면 보여주기 위함
+    this.menuTemplate('.nocoffeeWrap', Menu.nocoffeeArray);
+    this.menuTemplate('.teaWrap', Menu.teaArray);
+    this.menuTemplate('.cakeWrap', Menu.cakeArray);
   },
 
   event() {
@@ -20,11 +21,13 @@ export default {
   },
 
   wrapTemplate() {
-    menu.tabArray.forEach(function (arr) {
+    Menu.tabArray.forEach(function (arr) {
       let wrap = `
-      <div class = "${arr.tab}Wrap ${arr.state}">
-        <ul></ul>
-      </div>
+      <section class = "wrapper">
+        <div class = "${arr.tab}Wrap wrap close">
+          <ol></ol>
+        </div>
+      </section>
       `
       sel.el('main').insertAdjacentHTML('beforeend', wrap)
     })
@@ -32,19 +35,18 @@ export default {
   },
 
   menuTemplate(wrapper, menuInfo) {
-    console.log();
     for (const key in menuInfo) {
       let template = `
       <li data-code = "${menuInfo[key].code}">
-        <img class = "menuImg"></img>
+        <img class = "menuImg" src = "/css/img/${menuInfo[key].img}.jpg"></img>
         <div class = "menuInfo">
-          <h2 class = "h2">${menuInfo[key].title}</h2>
-          <p>${menuInfo[key].engTitle}</p>
-          <p>${menuInfo[key].price}</p>
+          <h2 class = "h2 ">${menuInfo[key].title}</h2>
+          <p class = "engTitle">${menuInfo[key].engTitle}</p>
+          <p class = "price">${menuInfo[key].price}원</p>
         </div>
       </li>
     ` 
-      sel.el(`${wrapper}>ul`).insertAdjacentHTML('beforeend', template)
+      sel.el(`${wrapper}>ol`).insertAdjacentHTML('beforeend', template)
     }
   },
 

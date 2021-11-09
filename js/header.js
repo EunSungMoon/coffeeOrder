@@ -1,7 +1,7 @@
 // import coffee from "./coffee.js";
 import { sel } from "./common.js";
 import Main from './main.js'
-import menu from "./menu.js";
+import Menu from "./menu.js";
 
 // header
 export default {
@@ -24,18 +24,15 @@ export default {
     <div class = "headWrap">
       <h1>Order</h1>
     </div>
-    <nav>
-      <ol>
-      </ol>
-    <nav>
+    <nav><ol></ol></nav>
       `
     sel.el('.header').insertAdjacentHTML('afterbegin', titleDom)
   },
 
   createTabMenu() {
-    menu.tabArray.forEach(function (arr) {
+    Menu.tabArray.forEach(function (arr) {
       let tabDom = `
-      <li class = "menuTab" data-tab = "${arr.tab}Tab"><a href = "#">${arr.title}</a></li>
+      <li class = "menuTab" data-tab = "${arr.tab}"><a href = "#">${arr.title}</a></li>
       `
       sel.el('ol').insertAdjacentHTML('beforeend', tabDom)
     })
@@ -51,20 +48,36 @@ export default {
   clickNavEvent(e) {
     let target = e.currentTarget.dataset.tab
     switch (target) {
-      case 'coffeeTab':
-        console.log('coffee');
+      case 'coffee':
+        sel.el('.coffeeWrap').classList.remove('close')
+        sel.el('.nocoffeeWrap').classList.add('close')
+        sel.el('.teaWrap').classList.add('close');
+        sel.el('.cakeWrap').classList.add('close')
         break;
-      case 'nocoffeeTab':
-        console.log('nocoffee');
+      case 'nocoffee':
+        sel.el('.nocoffeeWrap').classList.remove('close')
+        sel.el('.coffeeWrap').classList.add('close')
+        sel.el('.teaWrap').classList.add('close');
+        sel.el('.cakeWrap').classList.add('close')
         break;
-      case 'teaTab':
-        console.log('tea');
-        
+      case 'tea':
+        sel.el('.teaWrap').classList.remove('close')
+        sel.el('.coffeeWrap').classList.add('close')
+        sel.el('.nocoffeeWrap').classList.add('close');
+        sel.el('.cakeWrap').classList.add('close')
         break;
-      case 'adeTab':
-        console.log('ade');
-        
+      case 'cake':
+        sel.el('.cakeWrap').classList.remove('close')
+        sel.el('.coffeeWrap').classList.add('close')
+        sel.el('.nocoffeeWrap').classList.add('close');
+        sel.el('.teaWrap').classList.add('close')
         break;
     }
   },
+
+  hateRepition() {
+    // let clickedTab = e.currentTarget
+    // console.log(clickedTab);
+    console.log('a');
+  }
 }

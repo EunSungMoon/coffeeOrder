@@ -33,27 +33,6 @@ export default {
       price: '4,600',
       img: 'cafelatte'
     },
-    {
-      code: "coffee",
-      title: '카페 라떼',
-      engTitle: 'Cafe Latte',
-      price: '4,600',
-      img: 'cafelatte'
-    },
-    {
-      code: "coffee",
-      title: '카페 라떼',
-      engTitle: 'Cafe Latte',
-      price: '4,600',
-      img: 'cafelatte'
-    },
-    {
-      code: "coffee",
-      title: '카페 라떼',
-      engTitle: 'Cafe Latte',
-      price: '4,600',
-      img: 'cafelatte'
-    }
   ],
 
   nocoffeeArray: [

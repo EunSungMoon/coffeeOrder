@@ -23,13 +23,11 @@ export default {
   wrapTemplate() {
     Menu.tabArray.forEach(function (arr) {
       let wrap = `
-      <section class = "wrapper">
         <div class = "${arr.tab}Wrap wrap close">
           <ol></ol>
         </div>
-      </section>
       `
-      sel.el('main').insertAdjacentHTML('beforeend', wrap)
+      sel.el('.main').insertAdjacentHTML('beforeend', wrap)
     })
     
   },

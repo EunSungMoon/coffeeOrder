@@ -1,12 +1,21 @@
+%display-shared {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%pm0-shared { //padding, margin 0
+  padding: 0;
+  margin: 0;
+}
+
+
 body {
   margin: 0;
 }
 .header {
   background: #f6f5ef;
   .headWrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %display-shared;
 
     h1 {
       text-align: center;
@@ -16,18 +25,15 @@ body {
   }
   nav {
     ol {
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
+      @extend %display-shared;
+      @extend %pm0-shared;
       text-align: center;
-      align-items: center;
       height: 60px;
       li {
         width: 100px;
         height: 100%;
         :hover {
-          background: #036635;
+          background: #006633;
           color: #f6f5ef;
         }
         a {
@@ -44,19 +50,14 @@ body {
 }
 .main {
   .wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %display-shared;
   }
 
   ol {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %display-shared;
+    @extend %pm0-shared;
     width: 800px;
     flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
     margin-top: 20px;
 
     li {
@@ -65,19 +66,41 @@ body {
       h2 {
         font-size: 16px;
         margin: 0;
-        margin-top: 5px;
+        margin-top: 10px;
       }
+
       .engTitle {
         color: #666;
         font-size: 12px;
-        margin-top: 5px;
+        margin: 5px 0;
       }
       .price {
         font-size: 16px;
+        margin-bottom: 5px;
+        margin-top: 0;
+      }
+
+      .orderBtn {
+        background: #006633;
+        border: none;
+        border-radius: 3px;
+        height: 24px;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+          font-size: 12px;
+          line-height: 25px;
+        }
       }
     }
   }
 }
+
+// .footer {
+//   background: #2C2A29;
+//   color: #f6f5ef;
+// }
 
 // common 디자인
 .margin25 {

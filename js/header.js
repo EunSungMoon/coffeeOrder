@@ -1,6 +1,5 @@
 // import coffee from "./coffee.js";
 import { sel } from "./common.js";
-import Main from './main.js'
 import Menu from "./menu.js";
 
 // header
@@ -74,10 +73,4 @@ export default {
         break;
     }
   },
-
-  hateRepition() {
-    // let clickedTab = e.currentTarget
-    // console.log(clickedTab);
-    console.log('a');
-  }
 }

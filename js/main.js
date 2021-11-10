@@ -17,7 +17,7 @@ export default {
   },
 
   event() {
-
+    this.orderBtnEvt();
   },
 
   wrapTemplate() {
@@ -29,7 +29,7 @@ export default {
       `
       sel.el('.main').insertAdjacentHTML('beforeend', wrap)
     })
-    
+
   },
 
   menuTemplate(wrapper, menuInfo) {
@@ -41,16 +41,26 @@ export default {
           <h2 class = "h2 ">${menuInfo[key].title}</h2>
           <p class = "engTitle">${menuInfo[key].engTitle}</p>
           <p class = "price">${menuInfo[key].price}원</p>
+          <button class = "orderBtn"><a href = "#">주문하기</a></button>
         </div>
       </li>
-    ` 
+    `
       sel.el(`${wrapper}>ol`).insertAdjacentHTML('beforeend', template)
     }
   },
 
-  // display(elClassName, state) {
-  //   sel.el(elClassName).style.display = state
-  // }
+  orderBtnEvt() {
+    let btns = sel.elAll('.orderBtn');
+
+    for (const btn of btns) {
+      btn.addEventListener('click', function () {
+        location.href='selectOption.html'
+      })
+    }
+  }
 }
 
-//메뉴를 하나의 배열에 담고, 다 출력, data속성을 넣어준 다음에, 속성값이 아닌 애들은 none을 주는건?
+// let tabs = sel.elAll('.menuTab')
+// for (const tab of tabs) {
+//   tab.addEventListener('click', this.clickNavEvent)
+// }

@@ -18,6 +18,53 @@ export default {
     },
   ],
 
+  optionArray: [
+    {
+      className: 'size',
+      title: '사이즈',
+    },
+    {
+      className: 'cup',
+      title: '컵선택'
+    }
+  ],
+
+  sizeArray: [
+    {
+      className: 'tall',
+      title: 'Tall',
+      volume: '355ml',
+      img: ''
+    },
+    {
+      className: 'grande',
+      title: 'Grande',
+      volume: '473ml',
+      img: ''
+    },
+    {
+      className: 'venti',
+      title: 'Venti',
+      volume: '591ml',
+      img: ''
+    }
+  ],
+
+  cupArray: [
+    {
+      className: 'hall',
+      title: '매장'
+    },
+    {
+      className: 'individual',
+      title: '개인'
+    },
+    {
+      className: 'disposable',
+      title: '일회용'
+    }
+  ],
+
   coffeeArray: [
     {
       code: 'coffee',

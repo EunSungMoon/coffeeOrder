@@ -41,7 +41,7 @@ export default {
           <h2 class = "h2 ">${menuInfo[key].title}</h2>
           <p class = "engTitle">${menuInfo[key].engTitle}</p>
           <p class = "price">${menuInfo[key].price}원</p>
-          <button class = "orderBtn"><a href = "#">주문하기</a></button>
+          <button class = "orderBtn" data-btnCode = "${menuInfo[key].btnCode}"><a href = "#">주문하기</a></button>
         </div>
       </li>
     `
@@ -59,8 +59,3 @@ export default {
     }
   }
 }
-
-// let tabs = sel.elAll('.menuTab')
-// for (const tab of tabs) {
-//   tab.addEventListener('click', this.clickNavEvent)
-// }

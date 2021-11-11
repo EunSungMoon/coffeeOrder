@@ -71,14 +71,16 @@ export default {
       title: '아메리카노',
       engTitle: 'Amricano',
       price: '4,100',
-      img: 'americano'
+      img: 'americano',
+      btnCode: 'americano'
     },
     {
       code: "coffee",
       title: '카페 라떼',
       engTitle: 'Cafe Latte',
       price: '4,600',
-      img: 'cafelatte'
+      img: 'cafelatte',
+      btnCode: 'cafelatte'
     },
   ],
 

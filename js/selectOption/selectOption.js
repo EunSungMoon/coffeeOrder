@@ -3,20 +3,21 @@ import { sel } from "../common.js"
 
 export default {
   init() {
+    this.load()
+    this.event()
+  },
+
+  load() {
     this.infoTemplate()
     this.optionTitleTemplate()
     this.optionSizeTemplate()
     this.optionCupTemplate()
-
-
-  },
-
-  load() {
-
   },
 
   event() {
-
+    this.clickTempEvt()
+    this.clickSizeEvt()
+    this.clickCupEvt()
   },
 
   infoTemplate() {
@@ -31,31 +32,30 @@ export default {
       </div>
       <div class = "tempBtn">
         <ol>
-          <li class = "hot">HOT</li>
-          <li class = "ice">ICE</li>
+          <li class = "hot red"><a>HOT</a></li>
+          <li class = "ice"><a>ICE</a></li>
         </ol>
       </div>
+      <div class = "option"></div>
     </section>
     `
     sel.el('.main').insertAdjacentHTML('afterbegin', info)
   },
 
-
-  
   optionTitleTemplate() {
-    for(const key in Menu.optionArray) {
+    Menu.optionArray.forEach(function (arr) {
       let sizeAndCup = `
-      <div class = "${Menu.optionArray[key].className} template">
-        <h2>${Menu.optionArray[key].title}</h2>
+      <div class = "${arr.className} template">
+        <h2>${arr.title}</h2>
         <ol></ol>
       </div>
     `
-      sel.el('.tempBtn').insertAdjacentHTML('afterend', sizeAndCup)
-    }
+      sel.el('.option').insertAdjacentHTML('beforeend', sizeAndCup)
+    })
   },
 
   optionSizeTemplate() {
-    for(const key in Menu.sizeArray) {
+    for (const key in Menu.sizeArray) {
       let sizeDom = `
       <li class = "${Menu.sizeArray[key].className}">
         <img>${Menu.sizeArray[key].img}</img>
@@ -68,7 +68,7 @@ export default {
   },
 
   optionCupTemplate() {
-    for(const key in Menu.cupArray) {
+    for (const key in Menu.cupArray) {
       let cupDom = `
       <li class = "${Menu.cupArray[key].className}">
       <p>${Menu.cupArray[key].title}</p>
@@ -84,5 +84,68 @@ export default {
 
       </div>
     `
+  },
+
+  clickTempEvt() {
+    let selectors = sel.elAll('.tempBtn > ol> li')
+    for (const selector of selectors) {
+      selector.addEventListener('click', function (e) {
+        let target = e.currentTarget.classList
+        console.log(target);
+        if (target == 'ice') {
+          sel.el('.ice').classList.add('blue')
+          sel.el('.hot').classList.remove('red')
+        } else if (target == 'hot') {
+          sel.el('.hot').classList.add('red')
+          sel.el('.ice').classList.remove('blue')
+        }
+      })
+    }
+  },
+
+  clickSizeEvt() {
+    let selectors = sel.elAll('.size > ol > li')
+    for (const selector of selectors) {
+      selector.addEventListener('click', function (e) {
+        let target = e.currentTarget.classList
+        if (target == 'tall') {
+          sel.el('.tall').classList.add('greenBorder')
+          sel.el('.grande').classList.remove('greenBorder')
+          sel.el('.venti').classList.remove('greenBorder')
+          
+        } else if (target == 'grande') {
+          sel.el('.grande').classList.add('greenBorder')
+          sel.el('.tall').classList.remove('greenBorder')
+          sel.el('.venti').classList.remove('greenBorder')
+        } else if (target == 'venti') {
+          sel.el('.venti').classList.add('greenBorder')
+          sel.el('.grande').classList.remove('greenBorder')
+          sel.el('.tall').classList.remove('greenBorder')
+        }
+      })
+    }
+  },
+
+  clickCupEvt() {
+    let selectors = sel.elAll('.cup > ol > li')
+    for (const selector of selectors) {
+      selector.addEventListener('click', function (e) {
+        let target = e.currentTarget.classList
+        if (target == 'hall') {
+          sel.el('.hall').classList.add('green')
+          sel.el('.individual').classList.remove('green')
+          sel.el('.disposable').classList.remove('green')
+          
+        } else if (target == 'individual') {
+          sel.el('.individual').classList.add('green')
+          sel.el('.disposable').classList.remove('green')
+          sel.el('.hall').classList.remove('green')
+        } else if (target == 'disposable') {
+          sel.el('.disposable').classList.add('green')
+          sel.el('.individual').classList.remove('green')
+          sel.el('.hall').classList.remove('green')
+        }
+      })
+    }
   }
 }

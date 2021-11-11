@@ -1,0 +1,119 @@
+%ol-shared {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+%border-shared {
+  border: 1px solid;
+  border-color: #999;
+  text-align: center;
+}
+
+%border-radius-left {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+%border-radius-right {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.red {
+  background: red;
+  border-color: red !important;
+  color: #fff;
+}
+.blue {
+  background: blue;
+  border-color: blue !important;
+  color: #fff;
+}
+
+.greenBorder {
+  border: 2px solid !important;
+  border-color: #006633 !important;
+}
+
+.green {
+  background: #006633;
+  border-color: #006633 !important;
+}
+
+.menuInfo {
+  h2 {
+    margin: 0;
+    margin-top: 10px;
+  }
+  .engTitle {
+    color: #666;
+    font-size: 12px;
+    margin: 5px 0;
+  }
+  .info {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .price {
+    font-size: 20px;
+    margin: 15px 0 5px 0;
+    font-weight: bold;
+  }
+}
+
+.tempBtn {
+  ol {
+    @extend %ol-shared;
+
+    li {
+      @extend %border-shared;
+      width: 162px;
+      height: 30px;
+      line-height: 30px;
+    }
+    .hot {
+      @extend %border-radius-left;
+      border-right: none;
+    }
+    .ice {
+      @extend%border-radius-right;
+    }
+  }
+}
+
+.option {
+  h2 {
+    font-size: 16px;
+  }
+  ol {
+    @extend %ol-shared;
+  }
+  .size {
+    li {
+      @extend %border-shared;
+      width: 100px;
+      border-radius: 10px;
+      margin-right: 10px;
+    }
+  }
+  .cup {
+    li {
+      @extend %border-shared;
+      width: 108px;
+      height: 30px;
+      line-height: 0;
+      text-align: center;
+    }
+    .hall {
+      @extend %border-radius-left;
+    }
+    .individual {
+      border-right: none;
+      border-left: none;
+    }
+    .disposable {
+      @extend%border-radius-right;
+    }
+  }
+}

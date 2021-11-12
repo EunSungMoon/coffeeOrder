@@ -2,19 +2,19 @@ export default {
   tabArray: [
     {
       title: 'COFFEE',
-      tab: 'coffee',
+      menu: 'coffee',
     },
     {
       title: 'noneCOFFEE',
-      tab: 'nocoffee',
+      menu: 'nocoffee',
     },
     {
       title: 'TEA',
-      tab: 'tea',
+      menu: 'tea',
     },
     {
       title: 'CAKE',
-      tab: 'cake',
+      menu: 'cake',
     },
   ],
 

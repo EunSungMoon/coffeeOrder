@@ -23,7 +23,7 @@ export default {
   wrapTemplate() {
     Menu.tabArray.forEach(function (arr) {
       let wrap = `
-        <div class = "${arr.tab}Wrap wrap close">
+        <div class = "${arr.menu}Wrap wrap close" data-menu="${arr.menu}">
           <ol></ol>
         </div>
       `

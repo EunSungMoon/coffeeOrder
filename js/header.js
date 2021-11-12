@@ -15,6 +15,7 @@ export default {
   },
 
   event() {
+    this.removeTab()
     this.clickTab();
   },
 
@@ -31,7 +32,7 @@ export default {
   createTabMenu() {
     Menu.tabArray.forEach(function (arr) {
       let tabDom = `
-      <li class = "menuTab" data-tab = "${arr.tab}"><a href = "#">${arr.title}</a></li>
+      <li class = "menuTab" data-menu = "${arr.menu}"><a href = "#">${arr.title}</a></li>
       `
       sel.el('ol').insertAdjacentHTML('beforeend', tabDom)
     })
@@ -44,32 +45,31 @@ export default {
     }
   },
 
+  removeTab() {
+    let btns = sel.elAll('.menuTab')
+    for (const btn of btns) {
+      btn.addEventListener('click', function (e) {
+        console.log(e.currentTarget)
+        let menus = sel.elAll('.wrap')
+        for (const menu of menus) { menu.classList.add('close') }
+      })
+    }
+  },
+
   clickNavEvent(e) {
-    let target = e.currentTarget.dataset.tab
+    let target = e.currentTarget.dataset.menu
     switch (target) {
       case 'coffee':
         sel.el('.coffeeWrap').classList.remove('close')
-        sel.el('.nocoffeeWrap').classList.add('close')
-        sel.el('.teaWrap').classList.add('close');
-        sel.el('.cakeWrap').classList.add('close')
         break;
       case 'nocoffee':
         sel.el('.nocoffeeWrap').classList.remove('close')
-        sel.el('.coffeeWrap').classList.add('close')
-        sel.el('.teaWrap').classList.add('close');
-        sel.el('.cakeWrap').classList.add('close')
         break;
       case 'tea':
         sel.el('.teaWrap').classList.remove('close')
-        sel.el('.coffeeWrap').classList.add('close')
-        sel.el('.nocoffeeWrap').classList.add('close');
-        sel.el('.cakeWrap').classList.add('close')
         break;
       case 'cake':
         sel.el('.cakeWrap').classList.remove('close')
-        sel.el('.coffeeWrap').classList.add('close')
-        sel.el('.nocoffeeWrap').classList.add('close');
-        sel.el('.teaWrap').classList.add('close')
         break;
     }
   },

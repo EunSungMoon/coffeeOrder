@@ -15,9 +15,8 @@ export default {
   },
 
   event() {
-    this.clickTempEvt()
-    this.removeClass('.sizeOption', 'greenBorder')
-    this.clickSizeEvt()
+    this.clickTempEvt();
+    this.addClass()
     this.clickCupEvt()
   },
 
@@ -33,8 +32,8 @@ export default {
       </div>
       <div class = "tempBtn">
         <ol>
-          <li class = "hot red"><a>HOT</a></li>
-          <li class = "ice"><a>ICE</a></li>
+          <li class = "tempOption hot red"><a>HOT</a></li>
+          <li class = "tempOption ice"><a>ICE</a></li>
         </ol>
       </div>
       <div class = "option"></div>
@@ -71,7 +70,7 @@ export default {
   optionCupTemplate() {
     for (const key in Menu.cupArray) {
       let cupDom = `
-      <li class = "cup ${Menu.cupArray[key].className}">
+      <li class = "cupOption ${Menu.cupArray[key].className}">
       <p>${Menu.cupArray[key].title}</p>
     </li>
       `
@@ -88,16 +87,15 @@ export default {
   },
 
   clickTempEvt() {
-    let selectors = sel.elAll('.tempBtn > ol> li')
+    let selectors = sel.elAll('.tempOption')
     for (const selector of selectors) {
-      selector.addEventListener('click', function (e) {
-        let target = e.currentTarget.className
-        switch (target) {
-          case 'ice':
+      selector.addEventListener('click', function () {
+        switch (this) {
+          case sel.el('.ice'):
             sel.el('.ice').classList.add('blue')
             sel.el('.hot').classList.remove('red')
             break;
-          case 'hot':
+          case sel.el('.hot'):
             sel.el('.hot').classList.add('red')
             sel.el('.ice').classList.remove('blue')
             break;
@@ -106,67 +104,21 @@ export default {
     }
   },
 
-  removeClass(selector, state) {
-    let btns=sel.elAll(selector)
-    for(const btn of btns) {
-      btn.addEventListener('click', function(e) {
-        console.log(e.currentTarget);
-        btn.classList.remove(state)
-      })
-    }
-  },
-
-  clickSizeEvt() {
+  addClass() {
     let selectors = sel.elAll('.sizeOption')
     for (const selector of selectors) {
       selector.addEventListener('click', function (e) {
-        let target = e.currentTarget
-        console.log(target);
-        switch (target) {
-          case 'tall': sel.el('.sizeOption').classList.add('greenBorder')
-            break;
-          case 'grande': sel.el('.sizeOption').classList.add('greenBorder')
-            break;
-          case 'venti': sel.el('.sizeOption').classList.add('greenBorder')
-            break;
-        }
-        // if (target == 'tall') {
-        //   sel.el('.tall').classList.add('greenBorder')
-        //   sel.el('.grande').classList.remove('greenBorder')
-        //   sel.el('.venti').classList.remove('greenBorder')
-
-        // } else if (target == 'grande') {
-        //   sel.el('.grande').classList.add('greenBorder')
-        //   sel.el('.tall').classList.remove('greenBorder')
-        //   sel.el('.venti').classList.remove('greenBorder')
-        // } else if (target == 'venti') {
-        //   sel.el('.venti').classList.add('greenBorder')
-        //   sel.el('.grande').classList.remove('greenBorder')
-        //   sel.el('.tall').classList.remove('greenBorder')
-        // }
+        this.classList.add('greenBorder')
       })
     }
   },
 
   clickCupEvt() {
-    let selectors = sel.elAll('.cup > ol > li')
+    let selectors = sel.elAll('.cupOption')
     for (const selector of selectors) {
-      selector.addEventListener('click', function (e) {
-        let target = e.currentTarget.classList
-        if (target == 'hall') {
-          sel.el('.hall').classList.add('green')
-          sel.el('.individual').classList.remove('green')
-          sel.el('.disposable').classList.remove('green')
-
-        } else if (target == 'individual') {
-          sel.el('.individual').classList.add('green')
-          sel.el('.disposable').classList.remove('green')
-          sel.el('.hall').classList.remove('green')
-        } else if (target == 'disposable') {
-          sel.el('.disposable').classList.add('green')
-          sel.el('.individual').classList.remove('green')
-          sel.el('.hall').classList.remove('green')
-        }
+      selector.addEventListener('click', function () {
+        console.log(this);
+        this.classList.add('greenBtn')
       })
     }
   }

@@ -15,7 +15,7 @@ export default {
   },
 
   event() {
-    this.removeTab()
+    this.addClass()
     this.clickTab();
   },
 
@@ -41,22 +41,21 @@ export default {
   clickTab() {
     let tabs = sel.elAll('.menuTab')
     for (const tab of tabs) {
-      tab.addEventListener('click', this.clickNavEvent)
+      tab.addEventListener('click', this.removeClass)
     }
   },
 
-  removeTab() {
+  addClass() {
     let btns = sel.elAll('.menuTab')
     for (const btn of btns) {
       btn.addEventListener('click', function (e) {
-        console.log(e.currentTarget)
         let menus = sel.elAll('.wrap')
         for (const menu of menus) { menu.classList.add('close') }
       })
     }
   },
 
-  clickNavEvent(e) {
+  removeClass(e) {
     let target = e.currentTarget.dataset.menu
     switch (target) {
       case 'coffee':
@@ -68,7 +67,7 @@ export default {
       case 'tea':
         sel.el('.teaWrap').classList.remove('close')
         break;
-      case 'cake':
+      case 'cake':  
         sel.el('.cakeWrap').classList.remove('close')
         break;
     }

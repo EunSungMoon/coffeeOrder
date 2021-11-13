@@ -23,25 +23,26 @@
 }
 
 .red {
-  background: red;
-  border-color: red !important;
+  background: #C8433B;
+  border-color: #C8433B !important;
   color: #fff;
 }
 
 .blue {
-  background: blue;
-  border-color: blue !important;
+  background: #0076FE;
+  border-color: #0076FE !important;
   color: #fff;
 }
 
 .greenBorder {
-  border: 2px solid !important;
-  border-color: #006633 !important;
+  border: 3px solid !important;
+  border-color: #01A862 !important;
 }
 
-.green {
-  background: #006633;
-  border-color: #006633 !important;
+.greenBtn {
+  background: #01A862;
+  border-color: #01A862 !important;
+  color: #fff;
 }
 
 .menuInfo h2 {
@@ -88,7 +89,6 @@
 
 .option .cup li {
   width: 108px;
-  height: 30px;
   line-height: 0;
   text-align: center;
 }

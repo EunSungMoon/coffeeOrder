@@ -1,5 +1,6 @@
 import Menu from "../menu.js"
 import { sel } from "../common.js"
+import Main from "../main.js"
 
 export default {
   init() {
@@ -15,19 +16,21 @@ export default {
   },
 
   event() {
+
     this.clickTempEvt();
     this.addClass()
+
     this.clickCupEvt()
   },
 
   infoTemplate() {
-    let info = `
-    <section>
+      let info = `
+    <section data-code = "coffee">
       <img src = "/css/img/americano.jpg"></img>
       <div class = "menuInfo">
           <h2 class = "h2 ">아메리카노</h2>
-          <p class = "engTitle">Americano</p>
-          <p class = "info">진한 에스프레소와 뜨거운 물을 섞어 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽게 잘 느낄 수 있는 커피</p>
+          <p class = "engTitle">americano</p>
+          <p class = "info">kdfjlsf</p>
           <p class = "price">4,100원</p>
       </div>
       <div class = "tempBtn">
@@ -39,7 +42,8 @@ export default {
       <div class = "option"></div>
     </section>
     `
-    sel.el('.main').insertAdjacentHTML('afterbegin', info)
+
+      sel.el('.main').insertAdjacentHTML('afterbegin', info)
   },
 
   optionTitleTemplate() {
@@ -78,14 +82,6 @@ export default {
     }
   },
 
-  personalOptionTemplate() {
-    let personalOption = `
-      <div class = "person">
-
-      </div>
-    `
-  },
-
   clickTempEvt() {
     let selectors = sel.elAll('.tempOption')
     for (const selector of selectors) {
@@ -101,6 +97,13 @@ export default {
             break;
         }
       })
+    }
+  },
+
+  reset() {
+    let selectors = sel.elAll('.sizeOption')
+    for (const selector of selectors) {
+      selector.classList.remove('greenBorder')
     }
   },
 
@@ -121,5 +124,15 @@ export default {
         this.classList.add('greenBtn')
       })
     }
-  }
+  },
+
+  personalOptionTemplate() {
+    let personalOption = `
+      <div class = "person">
+        
+      </div>
+    `
+  },
 }
+
+//form action 방식을 이용해보자!!

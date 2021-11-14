@@ -26,6 +26,10 @@ export default {
     {
       className: 'cup',
       title: '컵선택'
+    },
+    {
+      className: 'personal',
+      title: '퍼스널 옵션'
     }
   ],
 
@@ -72,7 +76,8 @@ export default {
       engTitle: 'Amricano',
       price: '4,100',
       img: 'americano',
-      btnCode: 'americano'
+      btnCode: 'americano',
+      info: '진한 에스프레소와 뜨거운 물을 섞어 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽게 잘 느낄 수 있는 커피'
     },
     {
       code: "coffee",
@@ -90,14 +95,16 @@ export default {
       title: '제주 유기농 말차로 만든 크림 프라푸치노',
       engTitle: 'Malcha Cream Frappuccino from Jeju Organic Farm',
       price: '6,300',
-      img: 'malchafra'
+      img: 'malchafra',
+      btnCode: 'malcha',
     },
     {
       code: "nocoffee",
       title: '자바 칩 프라푸치노',
       engTitle: 'Java Chip Frappuccino',
       price: '6,100',
-      img: 'javachipfra'
+      img: 'javachipfra',
+      btnCode: 'javachip',
     }
   ],
 
@@ -107,14 +114,16 @@ export default {
       title: '유자 민트 티',
       engTitle: 'Yuja Mint Tea',
       price: '5,600',
-      img: 'yujamint'
+      img: 'yujamint',
+      btnCode: 'yujamint',
     },
     {
       code: "tea",
       title: '자몽 허니 블랙 티',
       engTitle: 'Grapefruit Honey Black Tea',
       price: '5,300',
-      img: 'grapefruittea'
+      img: 'grapefruittea',
+      btnCode: 'grapefruit',
     }
   ],
 
@@ -124,14 +133,16 @@ export default {
       title: '부드러운 생크림 카스테라',
       engTitle: 'Fresh Cream Castella',
       price: '4,500',
-      img: 'castella'
+      img: 'castella',
+      btnCode: 'castella',
     },
     {
       code: "cake",
       title: '호두 당근 케이크',
       engTitle: 'Walnut Carrot Cake',
       price: '6,500',
-      img: 'walnutcake'
+      img: 'walnutcake',
+      btnCode: 'walnut',
     }
   ],
 }

@@ -53,7 +53,8 @@ export default {
     let btns = sel.elAll('.orderBtn');
 
     for (const btn of btns) {
-      btn.addEventListener('click', function () {
+      btn.addEventListener('click', function (e) {
+        alert(e.currentTarget.dataset.btncode);
         location.href='selectOption.html'
       })
     }

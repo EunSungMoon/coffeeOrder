@@ -116,4 +116,10 @@
       @extend%border-radius-right;
     }
   }
+
+  .personal {
+    background: url('./img/rightarrow.png') no-repeat;
+    background-position: 300px;
+    background-size: 20px;
+  }
 }

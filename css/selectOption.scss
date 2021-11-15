@@ -20,25 +20,29 @@
 }
 
 .red {
-  background: #C8433B;
-  border-color: #C8433B !important;
+  background: #c8433b;
+  border-color: #c8433b !important;
   color: #fff;
 }
 .blue {
-  background: #0076FE;
-  border-color: #0076FE !important;
+  background: #0076fe;
+  border-color: #0076fe !important;
   color: #fff;
 }
 
 .greenBorder {
   border: 3px solid !important;
-  border-color: #01A862 !important;
+  border-color: #01a862 !important;
 }
 
 .greenBtn {
-  background: #01A862;
-  border-color: #01A862 !important;
+  background: #01a862;
+  border-color: #01a862 !important;
   color: #fff;
+}
+
+.hide {
+  display: none;
 }
 
 .menuInfo {
@@ -117,9 +121,23 @@
     }
   }
 
-  .personal {
-    background: url('./img/rightarrow.png') no-repeat;
-    background-position: 300px;
+  @mixin arrow($arrowImg) {
+    background: url("./img/#{$arrowImg}.png") no-repeat;
     background-size: 20px;
+    border: none;
+    width: 20px;
+    height: 20px;
+  }
+  .personalTitle {
+    display: flex;
+    h2 {
+      width: 310px;
+    }
+    .rightArrow {
+      @include arrow(rightarrow);
+    }
+    .downArrow {
+      @include arrow(downarrow);
+    }
   }
 }

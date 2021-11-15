@@ -23,26 +23,30 @@
 }
 
 .red {
-  background: #C8433B;
-  border-color: #C8433B !important;
+  background: #c8433b;
+  border-color: #c8433b !important;
   color: #fff;
 }
 
 .blue {
-  background: #0076FE;
-  border-color: #0076FE !important;
+  background: #0076fe;
+  border-color: #0076fe !important;
   color: #fff;
 }
 
 .greenBorder {
   border: 3px solid !important;
-  border-color: #01A862 !important;
+  border-color: #01a862 !important;
 }
 
 .greenBtn {
-  background: #01A862;
-  border-color: #01A862 !important;
+  background: #01a862;
+  border-color: #01a862 !important;
   color: #fff;
+}
+
+.hide {
+  display: none;
 }
 
 .menuInfo h2 {
@@ -98,9 +102,29 @@
   border-left: none;
 }
 
-.option .personal {
+.option .personalTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.option .personalTitle h2 {
+  width: 310px;
+}
+
+.option .personalTitle .rightArrow {
   background: url("./img/rightarrow.png") no-repeat;
-  background-position: 300px;
   background-size: 20px;
+  border: none;
+  width: 20px;
+  height: 20px;
+}
+
+.option .personalTitle .downArrow {
+  background: url("./img/downarrow.png") no-repeat;
+  background-size: 20px;
+  border: none;
+  width: 20px;
+  height: 20px;
 }
 /*# sourceMappingURL=selectOption.css.map */

@@ -13,18 +13,20 @@ export default {
     this.optionTitleTemplate()
     this.optionSizeTemplate()
     this.optionCupTemplate()
+    this.arrow()
+    this.personalOptionTemplate()
   },
 
   event() {
 
     this.clickTempEvt();
     this.addClass()
-
     this.clickCupEvt()
+    this.arrowEvt()
   },
 
   infoTemplate() {
-      let info = `
+    let info = `
     <section data-code = "coffee">
       <img src = "/css/img/americano.jpg"></img>
       <div class = "menuInfo">
@@ -43,15 +45,19 @@ export default {
     </section>
     `
 
-      sel.el('.main').insertAdjacentHTML('afterbegin', info)
+    sel.el('.main').insertAdjacentHTML('afterbegin', info)
   },
 
   optionTitleTemplate() {
     Menu.optionArray.forEach(function (arr) {
       let sizeAndCup = `
-      <div class = "${arr.className} template">
-        <h2>${arr.title}</h2>
-        <ol></ol>
+      <div class = "template ${arr.className}">
+        <div class = "${arr.className}Title">
+          <h2>${arr.title}</h2>
+        </div>
+        <div class = "optionList">
+          <ol></ol>
+        </div>
       </div>
     `
       sel.el('.option').insertAdjacentHTML('beforeend', sizeAndCup)
@@ -67,7 +73,7 @@ export default {
         <p>${Menu.sizeArray[key].volume}</p>
       </li>
       `
-      sel.el('.size > ol').insertAdjacentHTML('beforeend', sizeDom)
+      sel.el('.optionList > ol').insertAdjacentHTML('beforeend', sizeDom)
     }
   },
 
@@ -78,7 +84,7 @@ export default {
       <p>${Menu.cupArray[key].title}</p>
     </li>
       `
-      sel.el('.cup > ol').insertAdjacentHTML('beforeend', cupDom)
+      sel.el('.cup > .optionList >ol').insertAdjacentHTML('beforeend', cupDom)
     }
   },
 
@@ -97,13 +103,6 @@ export default {
             break;
         }
       })
-    }
-  },
-
-  reset() {
-    let selectors = sel.elAll('.sizeOption')
-    for (const selector of selectors) {
-      selector.classList.remove('greenBorder')
     }
   },
 
@@ -126,12 +125,31 @@ export default {
     }
   },
 
+  arrow() {
+    let arrowImg = `
+      <button class = "rightArrow arrow"></button>
+    `
+    sel.el('.personalTitle').insertAdjacentHTML('beforeend', arrowImg)
+  },
+
+  arrowEvt() {
+    let $arrow = sel.el('.arrow')
+    $arrow.addEventListener('click', function (e) {
+      console.log(this);
+      this.classList.toggle('downArrow');
+      sel.el('.personal > .optionList').classList.add('hide') //다시 손보자
+    })
+  },
+
   personalOptionTemplate() {
     let personalOption = `
-      <div class = "person">
-        
-      </div>
+      <li>
+        <span>
+          <p>에스프레소 샷</p>
+        </span>
+      </li>
     `
+    sel.el('.personal > .optionList >ol').insertAdjacentHTML('beforeend', personalOption)
   },
 }
 

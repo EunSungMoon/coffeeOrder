@@ -45,8 +45,8 @@
   color: #fff;
 }
 
-.hide {
-  display: none;
+.show {
+  display: block !important;
 }
 
 .menuInfo h2 {
@@ -102,17 +102,17 @@
   border-left: none;
 }
 
-.option .personalTitle {
+.option .personal .personalTitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.option .personalTitle h2 {
+.option .personal .personalTitle h2 {
   width: 310px;
 }
 
-.option .personalTitle .rightArrow {
+.option .personal .personalTitle .rightArrow {
   background: url("./img/rightarrow.png") no-repeat;
   background-size: 20px;
   border: none;
@@ -120,11 +120,15 @@
   height: 20px;
 }
 
-.option .personalTitle .downArrow {
+.option .personal .personalTitle .downArrow {
   background: url("./img/downarrow.png") no-repeat;
   background-size: 20px;
   border: none;
   width: 20px;
   height: 20px;
+}
+
+.option .personal .optionList {
+  display: none;
 }
 /*# sourceMappingURL=selectOption.css.map */

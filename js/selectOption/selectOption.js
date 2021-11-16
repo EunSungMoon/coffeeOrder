@@ -1,6 +1,5 @@
 import Menu from "../menu.js"
 import { sel } from "../common.js"
-import Main from "../main.js"
 
 export default {
   init() {
@@ -15,6 +14,7 @@ export default {
     this.optionCupTemplate()
     this.arrow()
     this.personalOptionTemplate()
+    this.getUrl()
   },
 
   event() {
@@ -23,6 +23,7 @@ export default {
     this.addClass()
     this.clickCupEvt()
     this.arrowEvt()
+
   },
 
   infoTemplate() {
@@ -135,9 +136,19 @@ export default {
   arrowEvt() {
     let $arrow = sel.el('.arrow')
     $arrow.addEventListener('click', function (e) {
-      console.log(this);
-      this.classList.toggle('downArrow');
-      sel.el('.personal > .optionList').classList.add('hide') //다시 손보자
+      // switch (this) {
+      //   case sel.el('.rightArrow'):
+      //     this.classList.add('downArrow')
+      //     sel.el('.personal > .optionList').classList.add('show')
+      //     break;
+      //   case sel.el('.downArrow'):
+      //     this.classList.add('rightArrow')
+      //     sel.el('.personal > .optionList').classList.remove('show')
+      //     break;
+      // }
+
+      this.classList.toggle('downArrow')
+      sel.el('.personal > .optionalList').classList.toggle('show')
     })
   },
 
@@ -151,6 +162,20 @@ export default {
     `
     sel.el('.personal > .optionList >ol').insertAdjacentHTML('beforeend', personalOption)
   },
+
+  getUrl() {
+    let btn = location.href.substr(
+      location.href.lastIndexOf('=') + 1
+    )
+    console.log('btnCode', btn);
+
+    if (btn == Menu.coffeeArray[0].btnCode) {
+      console.log(Menu.coffeeArray);
+    }
+    else {
+      console.log('false');
+    }
+  }
 }
 
 //form action 방식을 이용해보자!!

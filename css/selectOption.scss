@@ -41,8 +41,8 @@
   color: #fff;
 }
 
-.hide {
-  display: none;
+.show {
+  display: block !important;
 }
 
 .menuInfo {
@@ -128,16 +128,22 @@
     width: 20px;
     height: 20px;
   }
-  .personalTitle {
-    display: flex;
-    h2 {
-      width: 310px;
+
+  .personal {
+    .personalTitle {
+      display: flex;
+      h2 {
+        width: 310px;
+      }
+      .rightArrow {
+        @include arrow(rightarrow);
+      }
+      .downArrow {
+        @include arrow(downarrow);
+      }
     }
-    .rightArrow {
-      @include arrow(rightarrow);
-    }
-    .downArrow {
-      @include arrow(downarrow);
+    .optionList {
+      display: none;
     }
   }
 }

@@ -150,7 +150,7 @@ export default {
         case sel.el('.downArrow'):
           this.classList.add('rightArrow')
           this.classList.remove('downArrow')
-          sel.el('.personal>.optionList').classList.add('open')
+          sel.el('.personal>.optionList').classList.remove('open')
           break;
 
       }

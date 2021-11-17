@@ -8,7 +8,7 @@ export default {
   },
 
   load() {
-    this.infoTemplate()
+    this.loadData()
     this.optionTitleTemplate()
     this.optionSizeTemplate()
     this.optionCupTemplate()
@@ -18,23 +18,22 @@ export default {
   },
 
   event() {
-
     this.clickTempEvt();
-    this.addClass()
-    this.clickCupEvt()
+    this.addClass('.sizeOption', '.tall', '.grande', '.venti', 'greenBorder')
+    this.addClass('.cupOption', '.hall', '.individual', '.disposable', 'greenBtn')
     this.arrowEvt()
 
   },
 
-  infoTemplate() {
+  infoTemplate(code, src, title, engTitle, price) {
     let info = `
-    <section data-code = "coffee">
-      <img src = "/css/img/americano.jpg"></img>
+    <section data-code = "${code}">
+      <img src = "${src}"></img>
       <div class = "menuInfo">
-          <h2 class = "h2 ">아메리카노</h2>
-          <p class = "engTitle">americano</p>
+          <h2 class = "h2 ">${title}</h2>
+          <p class = "engTitle">${engTitle}</p>
           <p class = "info">kdfjlsf</p>
-          <p class = "price">4,100원</p>
+          <p class = "price">${price}</p>
       </div>
       <div class = "tempBtn">
         <ol>
@@ -95,11 +94,11 @@ export default {
       selector.addEventListener('click', function () {
         switch (this) {
           case sel.el('.ice'):
-            sel.el('.ice').classList.add('blue')
+            this.classList.add('blue')
             sel.el('.hot').classList.remove('red')
             break;
           case sel.el('.hot'):
-            sel.el('.hot').classList.add('red')
+            this.classList.add('red')
             sel.el('.ice').classList.remove('blue')
             break;
         }
@@ -107,21 +106,27 @@ export default {
     }
   },
 
-  addClass() {
-    let selectors = sel.elAll('.sizeOption')
+  addClass(selAll, sel1, sel2, sel3, className) {
+    let selectors = sel.elAll(selAll)
     for (const selector of selectors) {
       selector.addEventListener('click', function (e) {
-        this.classList.add('greenBorder')
-      })
-    }
-  },
-
-  clickCupEvt() {
-    let selectors = sel.elAll('.cupOption')
-    for (const selector of selectors) {
-      selector.addEventListener('click', function () {
-        console.log(this);
-        this.classList.add('greenBtn')
+        switch (this) {
+          case sel.el(sel1):
+            this.classList.add(className);
+            sel.el(sel2).classList.remove(className)
+            sel.el(sel2).classList.remove(className)
+            break;
+          case sel.el(sel2):
+            this.classList.add(className);
+            sel.el(sel1).classList.remove(className)
+            sel.el(sel3).classList.remove(className)
+            break;
+          case sel.el(sel3):
+            this.classList.add(className);
+            sel.el(sel1).classList.remove(className)
+            sel.el(sel2).classList.remove(className)
+            break;
+        }
       })
     }
   },
@@ -136,19 +141,19 @@ export default {
   arrowEvt() {
     let $arrow = sel.el('.arrow')
     $arrow.addEventListener('click', function (e) {
-      // switch (this) {
-      //   case sel.el('.rightArrow'):
-      //     this.classList.add('downArrow')
-      //     sel.el('.personal > .optionList').classList.add('show')
-      //     break;
-      //   case sel.el('.downArrow'):
-      //     this.classList.add('rightArrow')
-      //     sel.el('.personal > .optionList').classList.remove('show')
-      //     break;
-      // }
+      switch (this) {
+        case sel.el('.rightArrow'):
+          this.classList.add('downArrow')
+          this.classList.remove('rightArrow')
+          sel.el('.personal>.optionList').classList.add('open')
+          break;
+        case sel.el('.downArrow'):
+          this.classList.add('rightArrow')
+          this.classList.remove('downArrow')
+          sel.el('.personal>.optionList').classList.add('open')
+          break;
 
-      this.classList.toggle('downArrow')
-      sel.el('.personal > .optionalList').classList.toggle('show')
+      }
     })
   },
 
@@ -168,13 +173,15 @@ export default {
       location.href.lastIndexOf('=') + 1
     )
     console.log('btnCode', btn);
+  },
 
-    if (btn == Menu.coffeeArray[0].btnCode) {
-      console.log(Menu.coffeeArray);
-    }
-    else {
-      console.log('false');
-    }
+  loadData() {
+    let code = localStorage.getItem('data-code');
+    let src = localStorage.getItem('img')
+    let title = localStorage.getItem('title')
+    let engTitle = localStorage.getItem('engTitle')
+    let price = localStorage.getItem('price')
+    this.infoTemplate(code, src, title, engTitle, price);
   }
 }
 

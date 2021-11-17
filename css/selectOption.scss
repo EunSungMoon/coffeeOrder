@@ -41,7 +41,7 @@
   color: #fff;
 }
 
-.show {
+.open {
   display: block !important;
 }
 
@@ -132,6 +132,7 @@
   .personal {
     .personalTitle {
       display: flex;
+      align-items: center;
       h2 {
         width: 310px;
       }

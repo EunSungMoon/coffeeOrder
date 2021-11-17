@@ -18,6 +18,7 @@ export default {
 
   event() {
     this.orderBtnEvt();
+    this.saveData();
   },
 
   wrapTemplate() {
@@ -49,13 +50,31 @@ export default {
     }
   },
 
-  orderBtnEvt() { 
+  saveData() {
+    let btns = sel.elAll('.orderBtn');
+    for (const btn of btns) {
+      btn.addEventListener('click', function () {
+        let src = this.parentNode.parentNode.childNodes[1].src
+        localStorage.setItem('data-code', this.parentNode.parentNode.dataset.code)
+        console.log(this.parentNode.parentNode);
+        console.log(src);
+        console.log(src.substr(src.indexOf('g/')+2));
+        for (let i = 0; i < this.parentNode.childNodes.length; i++) {
+          localStorage.setItem('img', src.substr(src.indexOf('/css')));
+          localStorage.setItem('title', this.parentNode.childNodes[1].textContent);
+          localStorage.setItem('engTitle', this.parentNode.childNodes[3].textContent);
+          localStorage.setItem('price', this.parentNode.childNodes[5].textContent);
+        }
+      })
+    }
+  },
+
+  orderBtnEvt() {
     let btns = sel.elAll('.orderBtn');
 
     for (const btn of btns) {
       btn.addEventListener('click', function (e) {
         let url = btn.dataset.btncode
-        alert(url)
         location.href = 'selectOption.html?index=' + url
       })
     }
